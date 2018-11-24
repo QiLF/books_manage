@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<script src="js/jquery-3.2.1.js"></script>
+		<script src="layer/layer.js"></script>
+		<script src="layui/layui.js" charset="utf-8"></script>
+	</head>
+	<body>
+		<fieldset class="layui-elem-field layui-field-title" style="margin-left:25px;margin-right:25px;margin-top:30px;">
+			<legend>书籍详情</legend>
+		</fieldset>
+		<fieldset class="layui-elem-field" style="margin-left:25px;margin-right:25px">
+			<div class="layui-field-box" style="margin-left:25px;margin-right:25px">
+				<form class="layui-form" name="bookinfo-form">
+					<div class="layui-form-item">
+						<label class="layui-form-label" autocomplete="off" style="width:90px">书籍名称</label>
+						<div class="layui-input-inline">
+							<input name="title" class="layui-input" placeholder="书籍名称" autocomplete="off" style="width:310px">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" autocomplete="off" style="width:90px">作者</label>
+						<div class="layui-input-inline">
+							<input name="author" class="layui-input" placeholder="作者"style="width:310px">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" autocomplete="off" style="width:90px">索书号</label>
+						<div class="layui-input-inline">
+							<input name="index_id" class="layui-input" placeholder="索书号" style="width:310px">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" autocomplete="off" style="width:90px">价格</label>
+						<div class="layui-input-inline">
+							<input name="price" class="layui-input" placeholder="价格" autocomplete="off" style="width:310px">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" autocomplete="off" style="width:90px">书籍类型</label>
+						<div class="layui-input-inline">
+							<input name="type" class="layui-input" placeholder="书籍类型" autocomplete="off" style="width:310px">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" autocomplete="off" style="width:90px">出版社</label>
+						<div class="layui-input-inline">
+							<input name="pub_name" class="layui-input" placeholder="出版社" autocomplete="off" style="width:310px">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" autocomplete="off" style="width:90px">出版日期</label>
+						<div class="layui-input-inline">
+							<input name="pub_date" class="layui-input" placeholder="出版日期" autocomplete="off" style="width:310px">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label" autocomplete="off" style="width:90px">馆藏地</label>
+						<div class="layui-input-inline">
+							<input name="lib_name" class="layui-input" placeholder="馆藏地" autocomplete="off" style="width:310px">
+						</div>
+					</div>
+						<div class="layui-form-item">
+						<label class="layui-form-label" autocomplete="off" style="width:90px">书刊状态</label>
+						<div class="layui-input-inline">
+							<input name="curr_state" class="layui-input" placeholder="书刊状态" autocomplete="off" style="width:310px">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<div class="layui-input-block" id="buttons_block">
+							<button class="layui-btn" style="width:87px" type="button" onclick="bookinfo_update()">提交</button>
+							<button class="layui-btn layui-btn-primary" type="reset" style="width:87px">重置</button>
+							<button class="layui-btn" style="width:87px" type="button" onclick="borrow_book()">借阅</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</fieldset>
+		<script type="text/javascript" src="js/bookinfo.js">/*表单验证及提交*/</script>
+		<script type="text/javascript" src="js/borrow.js">/*表单验证及提交*/</script>
+		<script type="text/javascript" src="js/infoload.js">/*表单验证及提交*/</script>
+	</body>
+</html>

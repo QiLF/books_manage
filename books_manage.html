@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title>图书管理系统</title>
+	    <!--here two script is for 弹出子框~    <script src="js/book_search.js"></script> -->
+	  <script src="js/jquery-3.2.1.js"></script>
+	  <script src="layer/layer.js"></script>
+	  <script src="layui/layui.js" charset="utf-8"></script>
+      <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    </head>
+    <body>
+		<ul class="layui-nav" style="background-color:#55B5B">
+			<li class="layui-nav-item">
+				  <a href="infochange.html">修改信息</a>
+			</li>
+			<li class="layui-nav-item">
+				<a id="keyset" style="cursor:pointer">安全管理</a>
+			</li>
+			<li class="layui-nav-item">
+				<a href="">退出</a>
+			</li>
+			<li class="layui-nav-item">
+				<div>当前身份:学生</div>
+			</li>
+			
+		</ul>
+		 
+		 
+		<table id="demo" lay-filter="test"></table>
+		<div class="layui-tab layui-tab-brief" lay-filter="main-tab">
+			<ul class="layui-tab-title">
+				<li class="layui-this">图书查询</li>
+				<li>精确查询</li>
+				<li>馆藏概览</li>
+				<li>当前借阅</li>
+				<li>借阅历史</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">
+					<form class="layui-form" action="" name="search_form">
+						  <div class="layui-row">
+							<div class="layui-col-md6">
+								<div class="layui-form-item">
+									<label class="layui-form-label">图书名称</label>
+									<div class="layui-input-block">
+										<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入图书名称" class="layui-input">
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md6">
+								<button id="btn_search" style="margin-left:20px" type="button" onclick="searchByTitle()" class="layui-btn">查询</button>
+								<button id="btn_insert" style="margin-left:20px" type="button" onclick="new_book()" class="layui-btn">新建图书</button>
+							</div>
+						  </div>
+					</form>
+					<div id="searchByTitleResLinks"><!--分页--></div>
+					<div id="searchByTitleRes"><!--分页--></div>
+				</div>
+				<div class="layui-tab-item">
+					<div class="layui-col-md6">
+						<form class="layui-form" action="" name="precisely_search_form">
+							<div class="layui-form-item">
+								<label class="layui-form-label">索书号</label>
+								<div class="layui-input-block">
+									<input type="text" name="index_id" lay-verify="title" autocomplete="off" placeholder="请输入索书号" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">图书名称</label>
+								<div class="layui-input-block">
+									<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入图书名称" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">图书类别</label>
+								<div class="layui-input-block">
+								  <select name="type" lay-filter="book_type">
+									<option value="" selected=""></option>
+									<option value="人文社科">人文社科</option>
+									<option value="数学">数学</option>
+									<option value="物理">物理</option>
+									<option value="化学">化学</option>
+									<option value="生物">生物</option>
+									<option value="通信">通信</option>
+									<option value="计算机">计算机</option>
+								  </select>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">馆藏地</label>
+								<div class="layui-input-block">
+								  <select name="stock" lay-filter="book_type">
+									<option value="" selected=""></option>
+									<option value="西区图书馆">西区图书馆</option>
+									<option value="东区图书馆">东区图书馆</option>
+									<option value="先研院图书馆">先研院图书馆</option>
+									<option value="南区图书馆">南区图书馆</option>
+								  </select>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">出版社</label>
+								<div class="layui-input-block">
+									<input type="text" name="pub_name" lay-verify="title" autocomplete="off" placeholder="请输入出版社名称" class="layui-input">
+								</div>
+							</div>
+						</form>
+						<button id="btn_precisely_search" style="margin-left:300px;" type="button" onclick="preciselySearch()" class="layui-btn">查询</button>
+					</div>	
+					<div class="layui-col-md6">
+						<div id="preciselySearchResLinks">
+							<!--精确查询结果-->
+						</div>
+						<div id="preciselySearchRes">
+							<!--分页-->
+						</div>
+					</div>
+
+				</div>
+				
+				<div class="layui-tab-item">
+				
+				</div>
+				<div class="layui-tab-item">
+					<div id="borrowed_block"><!--分页--></div>
+					<div id="borrowed_laypage"><!--分页--></div>
+				</div>
+				<div class="layui-tab-item">
+					<div id="history_block"><!--分页--></div>
+					<div id="history_laypage"><!--分页--></div>
+				</div>
+			</div>
+		</div>      
+		<script type="text/javascript" src="js/changekey_subframe.js"></script>
+		<script type="text/javascript" src="js/books_search.js"></script>
+		<script type="text/javascript" src="js/books_show.js"></script>
+		<script type="text/javascript" src="js/borrow_and_history.js"></script>
+		<script>
+			layui.use(['form','element','layer','table','laypage'], function(){
+			  var form = layui.form
+			  ,layer = layui.layer
+			  ,$ = layui.jquery
+			  ,table = layui.table
+			  ,element = layui.element
+			  ,laypage = layui.laypage;
+			  element.on('tab(main-tab)', function(data){
+				search_user_borrowed_books();
+				console.log(data);
+			  });
+			});
+		</script>
+
+
+    </body>
+</html>

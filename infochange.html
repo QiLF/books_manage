@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+  <!--here two script is for 弹出子框~-->
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="layer/layer.js"></script>
+  <script src="layui/layui.js" charset="utf-8"></script>
+  <meta charset="utf-8">
+  <title>个人信息</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="layui/css/layui.css"  >
+  <style>
+
+#box{ position:relative;right:50px;width:250px;}.div1{width:250px;position:absolute;right:50px;}.div2{position:fixed;_position:absolute;top:0;z-index:250;right:35px;}
+@font-face {
+  font-family: 'title_big';   /*字体名称*/
+  src: url('layui/font/title_big.ttf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'title_eng';   /*字体名称*/
+  src: url('layui/font/title_eng.otf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'BuffaloScript';   /*字体名称*/
+  src: url('layui/font/BuffaloScript.otf');       /*字体源文件*/
+}
+@font-face {
+  font-family: 'h1_font';   /*字体名称*/
+  src: url('layui/font/h1.ttf');       /*字体源文件*/
+}
+#title_blog {
+   font: 25px "title_big";
+   margin-top:17px;
+   display: block;
+   color:#F8F8FF;
+   text-align: center;
+   float:right;
+   }
+#title_blog_eng {
+   font: 25px "BuffaloScript";
+   margin-top:17px;
+   display: block;
+   color: #F8F8FF;
+   text-align: center;
+   float:right;
+   }
+ .bootstrap-frm {
+   margin-left:250px;
+
+   margin-right:250px;
+   
+   margin-top:50px;
+   
+   margin-bottom:200px;
+   
+   background: #FFF;
+    padding-left: 80px;
+   text-shadow: 1px 1px 1px #FFF;
+   border:1px solid #DDD;
+   border-radius: 5px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   }
+.special { background: #CD853F; height: 35px; line-height: 35px;
+ margin-left:100px;margin-top:60px;
+padding-left: 65px; filter: progid:DXImageTransform.Microsoft.gradient(gradientType = 0, startColorstr = #3333333, endColorstr = #3333333);
+}/* 兼容IE6 透明 */
+.special li { display: inline-block; font-size: 16px; font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif; color: #FFF; padding: 0 22px; -webkit-transition: all 1s; -moz-transition: all 1s; -o-transition: all 1s; transition: all 1s;cursor:pointer; }
+.special li a{display:block}
+/*nav li:hover { background: #708090; }*/
+.special li:hover{ color: #fff; background: #D2B48C; transform:skewX(10deg);-webkit-transform:skewX(10deg);-o-transform:skewX(10deg);-ms-transform:skewX(10deg);-moz-transform:skewX(10deg) }
+#topnav_current { background: #D2B48C }/* 高亮选中颜色 */
+
+.avatar { margin: 10px auto; width: 160px; height: 160px; border-radius: 100%; overflow: hidden; }
+.avatar a { display: block; padding-top: 100px; width: 160px; background: url(http://t.cn/RCzsdCq) no-repeat; background-size: 160px 160px; }
+.avatar a span { display: block; margin-top: 63px; padding-top: 8px; width: 160px; height: 55px; text-align: center; line-height: 20px; color: #fff; background: rgba(0, 0, 0, .5); -webkit-transition: margin-top .2s ease-in-out; -moz-transition: margin-top .2s ease-in-out; -o-transition: margin-top .2s ease-in-out; transition: margin-top .2s ease-in-out; }
+.avatar a:hover span { display: block; margin-top: 0; }
+
+
+#head_portrait{width:120px;height:120px;margin-left:100px;margin-top:80px;border-radius:50%}
+
+.mainpage_header { margin: 10px;float:right;}
+.mainpage_header h1{font-size: 30px; font-family: "h1_font";}
+
+#footer {
+	margin: 10px 0 10px 0;
+	padding: 5px 0;
+	text-align: center;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	}
+#footer a {
+	padding: 3px 5px;
+	}
+  </style>
+</head>
+<body onLoad=""  style="background-color:#F0F0F0">
+	<ul class="layui-nav" style="background-color:#55B5B">
+		<li class="layui-nav-item">
+			<a href="books_manage.html">个人中心</a>
+		</li>
+		<li class="layui-nav-item">
+			<a id="keyset" style="cursor:pointer">安全管理</a>
+		</li>
+		<li class="layui-nav-item">
+			<a href="">退出</a>
+		</li>
+		<li class="layui-nav-item">
+			<div>当前身份:学生</div>
+		</li>
+		
+	</ul>
+
+	<div class="mainContent layui-fluid" style="min-height:800px">
+		<div class="layui-col-sm2"></div>
+		<div class="layui-col-sm10">
+			<div class="bootstrap-frm" style="position:relative;top:30px">
+					<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;position:relative;right:40px">
+						<legend>个人信息完善</legend>
+					</fieldset>
+
+					<form id="personinfo_form" class="layui-form">
+						<div class="layui-form-item" style="position:relative;right:80px" >
+							<label class="layui-form-label"><span style="color:red"></span>姓名</label>
+							<div class="layui-input-inline">
+								<input name="name" class="layui-input" type="text" placeholder="请输入姓名" autocomplete="off">
+							</div>
+						</div>
+
+						<div class="layui-form-item" style="position:relative;right:80px">
+							<div class="layui-inline">
+								<label class="layui-form-label"><span style="color:red"></span>年龄</label>
+								<div class="layui-input-inline">
+									<input name="age" class="layui-input" type="text" placeholder="你的年纪" autocomplete="off">
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item" style="position:relative;right:80px">
+							<label class="layui-form-label">性别</label>
+							<div class="layui-input-block">
+								<input type="radio" name="sex" value="男" title="男" checked="">
+								<input type="radio" name="sex" value="女" title="女">
+							</div>
+						</div>
+						<div class="layui-form-item" style="position:relative;right:80px">
+							<div class="layui-inline">
+								<label class="layui-form-label">年级</label>
+									<div class="layui-input-inline">
+										<select name="grade" lay-filter="grade">
+											<option value="" selected="">请选择所在年级</option>
+											<option value="大一">大一</option>
+											<option value="大二">大二</option>
+											<option value="大三">大三</option>
+											<option value="大四">大四</option>
+											<option value="研一">研一</option>
+											<option value="研二">研二</option>
+										</select>
+									</div>
+							</div>
+						</div>
+
+						<div class="layui-form-item" style="position:relative;right:80px">
+							<div class="layui-inline">
+								<label class="layui-form-label">学院</label>
+								<div class="layui-input-inline">
+									<select name="dept">
+										<option value="">请选择所在学院</option>
+										<optgroup label="少院">
+											<option value="少年班学院">少年班学院</option>
+										</optgroup>
+										<optgroup label="理学">
+											<option value="物理学院">物理学院</option>
+											<option value="化学与材料科学学院">化学与材料科学学院</option>
+											<option value="数学科学学院">数学科学学院</option>
+											<option value="生命科学学院">生命科学学院</option>
+											<option value="地球和空间科学学院">地球和空间科学学院</option>
+											<option value="管理学院">管理学院</option>
+											<option value="人文与社会科学学院">人文与社会科学学院</option>
+											<option value="核科学技术学院">核科学技术学院</option>
+										</optgroup>
+										<optgroup label="工学">
+											<option value="计算机科学技术学院">计算机科学技术学院</option>
+											<option value="信息科学技术学院">信息科学技术学院</option>
+											<option value="工程科学学院">工程科学学院</option>
+											<option value="信息科学技术学院">信息科学技术学院</option>
+										</optgroup>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="layui-form-item" style="position:relative;right:80px">
+							<div class="layui-input-block">
+								<button class="layui-btn" onclick="personinfo_change()" type="button">立即提交</button>
+								<button class="layui-btn layui-btn-primary" type="reset">重置</button>
+							</div>
+						</div>
+
+
+				  </form>
+			  </div>
+		</div>
+</div>
+
+<script>
+	layui.use(['form','element','layer',], function(){
+			  var form = layui.form
+			  ,layer = layui.layer
+			  ,$ = layui.jquery
+			  ,element = layui.element;
+			});
+</script>
+<script src="js/changekey_subframe.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/infochange.js"></script>
+
+<div style="text-align:center;padding:20px">
+    <p>Powered by: qlf, Contact:<a style="color:blue" href="">example@mail.ustc.edu.cn.</a></p>
+</div>
+
+
+</body>
+</html>

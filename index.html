@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="blog.ico">
+    <title>USTC图书管理系统</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="layui/css/layui.css"  media="all">
+
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+
+    <meta name="keywords" content="carousel, jquery, responsive, fluid, elastic, resize, thumbnail, slider" />
+
+    <meta name="author" content="Codrops" />
+
+    <link rel="shortcut icon" href="../favicon.ico"> 
+
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/elastislide.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+	
+    <!--弹出层需要以下两个js-->
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="layer/layer.js"></script>
+
+    <!--<script src="imageshow/js/modernizr.custom.17475.js"></script>-->
+  
+    <!--登录模块-->
+    <!--<script type="text/javascript" charset="utf-8" src="js/cookiemanage.js"></script>-->
+    <script type="text/javascript" charset="utf-8" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/login.js"></script>
+    <style>
+    @font-face {
+       font-family: 'title_big';   /*字体名称*/
+       src: url('layui/font/title_big.ttf');       /*字体源文件*/
+     }
+    .figure{
+       height:700px;
+       background: url("img/library.jpg") no-repeat;
+       overflow: hidden;
+       background-size:100%;
+     }
+    #title_index {
+       font-family:华文宋体;
+       margin-top:17px;
+       display: block;
+       color:#F8F8FF;
+       float:left;
+     }
+    </style>
+</head>
+<body>
+
+    <div class="mainContent figure">
+        <h1 id="title_index" style="padding:15px">———USTC图书管理系统———
+        
+        <a style="float:;padding:10px;font-size:55%;color:#E0E0E0" href="">联系我们</a>
+        <a style="float:;padding:10px;font-size:55%;color:#E0E0E0" href="">找回密码</a>
+        <a style="float:;padding:10px;font-size:55%;color:#E0E0E0" href="register.html">注册</a>
+        
+        </h1>
+        <div style="background:rgba(0,0,0,0.5);float:right;padding:20px;position:relative;right:60px;top:180px">
+        
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color:white;text-shadow:none">登录</legend>
+            </fieldset>
+        
+            <form  id="login-form" name="login-form">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="color:white;text-shadow:none">账号</label>
+                        <div class="layui-input-inline" style="width:200px;">
+                            <input  placeholder="请输入用户名" name="username" 
+									onblur="oBlur_check_user()" onFocus="oFocus_userName()" style="background-color:transparent;color:white"   autocomplete="off"  class="layui-input" type="text"/>
+                            <span id="reminder_userName" style="color:yellow;font-weight:500;text-shadow:none"></span>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label" style="color:white;text-shadow:none">密码</label>
+                        <div class="layui-input-inline"  style="width:200px;">
+                            <input  name="password" 
+									autocomplete="off" onblur="oBlur_check_password()" onFocus="oFocus_password()" style="background-color:transparent;color:white"  placeholder="请输入密码"  class="layui-input" type="password"/>
+                            <span id="reminder_password" style="color:yellow;font-weight:500;text-shadow:none"></span>
+                        </div>
+                    </div>
+                    <div style="text-align:center" class="layui-form-item">
+                            <input title="记住密码" type="checkbox">
+                            <span style="color:white;text-shadow:none">记住密码</span>
+                    </div>
+                    <br/>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button style="background-color:transparent;color:white" onclick="validateForm()" type="button" class="layui-btn layui-btn-primary" style="color:white">登录</button>
+                            <button style="background-color:transparent;color:white" type="reset" class="layui-btn layui-btn-primary" style="color:white">重置</button>
+                        </div>
+                    </div>
+                    
+             </form>
+        </div>
+
+		
+    </div>
+    <footer style="text-align:center;padding:20px">
+		<p>Powered by: lf, Contact:<a style="color:blue" href="">example@mail.ustc.edu.cn</a>.</p>
+	</footer>
+   
+
+   <!--
+   <script type="text/javascript" src="imageshow/js/jquerypp.custom.js"></script>
+
+   <script type="text/javascript" src="imageshow/js/jquery.elastislide.js"></script>
+	
+   <script type="text/javascript">
+			$( '#carousel' ).elastislide();
+   </script>
+   -->
+</body>
+</html>
